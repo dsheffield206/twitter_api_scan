@@ -8,6 +8,10 @@ var T = new Twit({
     consumer_secret: process.env.consumer_secret
 });
 
-scanRouter.get('/', function(req, res){
-
+// use http get to scan Twitter API for keywords
+scanRouter.get('search/tweets', function(req, res){
+    T.find({q: 'sendachi', count:100}, {q: 'devops', count 100}, function(err, data){
+        if(err) return handleError(err, res);
+        res.json(data);
+    });
 });
