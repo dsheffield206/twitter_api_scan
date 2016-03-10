@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
-mongoose.connect();
+mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost/scan_dev');
 require('dotenv').config();
 
 var scanRouter = require(__dirname + '/routes/scan_routes');
